@@ -1,9 +1,9 @@
-# laravel-prometheus-exporter
+# prometheus-exporter-laravel
 
 ## Installation
 
 ```bash
-composer require superbalist/laravel-prometheus-exporter
+composer require one-content/prometheus
 ```
 
 ## Configuration

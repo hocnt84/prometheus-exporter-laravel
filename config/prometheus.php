@@ -93,12 +93,12 @@ return [
     'storage_adapters' => [
 
         'redis' => [
-            'host' => env('REDIS_HOST', 'localhost'),
-            'port' => env('REDIS_PORT', 6379),
-            'timeout' => 0.1,
-            'read_timeout' => 10,
+            'host'                   => env('REDIS_HOST', 'localhost'),
+            'port'                   => env('REDIS_PORT', 6379),
+            'timeout'                => 0.1,
+            'read_timeout'           => 10,
             'persistent_connections' => false,
-            'prefix' => env('PROMETHEUS_REDIS_PREFIX', 'PROMETHEUS_'),
+            'prefix'                 => env('PROMETHEUS_REDIS_PREFIX', 'PROMETHEUS_'),
         ],
 
     ],
@@ -116,5 +116,9 @@ return [
 
     ],
 
-    'histogram_buckets' =>  [0.1, 0.25, 0.5, 0.75, 1.0, 2.5, 5.0, 7.5, 10.0],
+    'histogram_buckets' => [0.1, 0.25, 0.5, 0.75, 1.0, 2.5, 5.0, 7.5, 10.0],
+
+    'name' => env('PROMETHEUS_NAME', 'name'),
+
+    'help' => env('PROMETHEUS_NAME', 'help'),
 ];

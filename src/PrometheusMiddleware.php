@@ -39,24 +39,25 @@ class PrometheusMiddleware
         $response = $next($request);
 
         $route_name = $this->getRouteName();
-        $method     = $request->getMethod();
-        $status     = $response->getStatusCode();
+        if ($route_name !== 'metrics') {
+            $method = $request->getMethod();
+            $status = $response->getStatusCode();
 
-        $duration              = microtime(true) - $start;
-        $duration_milliseconds = $duration * 1000.0;
-        $this->countRequest($route_name, $method, $status, $duration_milliseconds);
-
+            $duration              = microtime(true) - $start;
+            $duration_milliseconds = $duration * 1000.0;
+            $this->countRequest($route_name, $method, $status, $duration_milliseconds);
+        }
         return $response;
     }
 
     public function initRouteMetrics()
     {
-        $namespace = config('prometheus.namespace');
-        $buckets   = config('prometheus.histogram_buckets');
+        $namespace  = config('prometheus.namespace');
+        $buckets    = config('prometheus.histogram_buckets');
         $labelNames = $this->getRequestCounterLabelNames();
 
-        $name                           = 'name';
-        $help                           = 'help';
+        $name = config('prometheus.name');;
+        $help = config('prometheus.help');;
 
         $this->requestDurationHistogram = $this->registry->getOrRegisterHistogram(
             $namespace, $name, $help, $labelNames, $buckets
@@ -66,9 +67,9 @@ class PrometheusMiddleware
     protected function getRequestCounterLabelNames()
     {
         return [
+            'route',
             'method',
             'code',
-            'route',
         ];
     }
 

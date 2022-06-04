@@ -1,0 +1,26 @@
+{
+    "name": "one-content/prometheus",
+    "description": "This is Prometheus Module for One Content",
+    "version": "1.0.0",
+    "keywords": [],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.6.0",
+        "illuminate/support": "^5.3 || ^6.0 || ^7.0 || ^8.0",
+        "illuminate/routing": "^5.3 || ^6.0 || ^7.0 || ^8.0",
+        "promphp/prometheus_client_php": "^2.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "OneContent\\Prometheus\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OneContent\\Prometheus\\PrometheusServiceProvider"
+            ]
+        }
+    },
+    "autoload-dev": {}
+}

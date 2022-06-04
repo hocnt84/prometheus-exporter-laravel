@@ -39,7 +39,7 @@ class PrometheusMiddleware
         $response = $next($request);
 
         $route_name = $this->getRouteName();
-        if ($route_name !== 'metrics') {
+        if ($route_name !== 'metrics' && $request->is('assets/*') === false) {
             $method = $request->getMethod();
             $status = $response->getStatusCode();
 

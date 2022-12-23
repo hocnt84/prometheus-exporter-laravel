@@ -15,12 +15,5 @@
             "OneContent\\Prometheus\\": "src/"
         }
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "OneContent\\Prometheus\\PrometheusServiceProvider"
-            ]
-        }
-    },
     "autoload-dev": {}
 }

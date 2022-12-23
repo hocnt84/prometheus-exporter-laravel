@@ -1,7 +1,7 @@
 {
     "name": "one-content/prometheus",
     "description": "This is Prometheus Module for One Content",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "keywords": [],
     "minimum-stability": "dev",
     "require": {
